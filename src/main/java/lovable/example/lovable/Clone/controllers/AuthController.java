@@ -6,6 +6,7 @@ import lovable.example.lovable.Clone.dto.auth.SignUpRequest;
 import lovable.example.lovable.Clone.services.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,11 +19,11 @@ public class AuthController {
 
 
     @PostMapping("signup")
-    public ResponseEntity<SignUpRequest> signup( SignUpRequest signUpRequest ){
+    public ResponseEntity<SignUpRequest> signup( @RequestBody SignUpRequest signUpRequest ){
         return ResponseEntity.ok(authService.signup(signUpRequest ));
     }
 
-    public ResponseEntity<LoginRequest> login(LoginRequest loginRequest){
+    public ResponseEntity<LoginRequest> login(@RequestBody LoginRequest loginRequest){
         return ResponseEntity.ok(authService.login(loginRequest));
     }
 
