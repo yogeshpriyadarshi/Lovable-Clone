@@ -17,12 +17,17 @@ public class AuthController {
 
     private AuthService authService;
 
-
-    @PostMapping("signup")
-    public ResponseEntity<SignUpRequest> signup( @RequestBody SignUpRequest signUpRequest ){
-        return ResponseEntity.ok(authService.signup(signUpRequest ));
+    @PostMapping("/test")
+    public String test(){
+        return "working spring boot";
     }
 
+    @PostMapping("/signup")
+    public ResponseEntity<SignUpRequest> signup( @RequestBody SignUpRequest signUpRequest ){
+        return ResponseEntity.ok(authService.signup(signUpRequest));
+    }
+
+    @PostMapping("/login")
     public ResponseEntity<LoginRequest> login(@RequestBody LoginRequest loginRequest){
         return ResponseEntity.ok(authService.login(loginRequest));
     }
