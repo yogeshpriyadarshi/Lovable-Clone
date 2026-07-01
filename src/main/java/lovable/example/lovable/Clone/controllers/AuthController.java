@@ -3,6 +3,7 @@ package lovable.example.lovable.Clone.controllers;
 import lombok.RequiredArgsConstructor;
 import lovable.example.lovable.Clone.dto.auth.LoginRequest;
 import lovable.example.lovable.Clone.dto.auth.SignUpRequest;
+import lovable.example.lovable.Clone.dto.auth.SignUpResponse;
 import lovable.example.lovable.Clone.services.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,15 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private AuthService authService;
+    private final AuthService authService;
 
     @PostMapping("/test")
     public String test(){
         return "working spring boot";
     }
 
+    @PostMapping("/testr")
+    public String testr(){
+        return "working spring boot  rrr " ;
+    }
     @PostMapping("/signup")
-    public ResponseEntity<SignUpRequest> signup( @RequestBody SignUpRequest signUpRequest ){
+    public ResponseEntity<SignUpResponse> signup(@RequestBody SignUpRequest signUpRequest ){
         return ResponseEntity.ok(authService.signup(signUpRequest));
     }
 

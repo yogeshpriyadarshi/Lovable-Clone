@@ -22,7 +22,9 @@ public class User {
     Long id;
 
     @Column(nullable = false)
-    String name;
+    String firstName;
+
+    String lastName;
 
     @Column(nullable = false)
     String password;

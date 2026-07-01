@@ -1,9 +1,9 @@
 package lovable.example.lovable.Clone.dto.auth;
 
-public record SignUpRequest(
+public record SignUpResponse(
+        Long id,
         String firstName,
         String lastName,
-        String email,
-        String password
+        String email
 ) {
 }
