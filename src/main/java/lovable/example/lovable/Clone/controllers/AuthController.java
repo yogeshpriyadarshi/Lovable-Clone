@@ -23,18 +23,15 @@ public class AuthController {
         return "working spring boot";
     }
 
-    @PostMapping("/testr")
-    public String testr(){
-        return "working spring boot  rrr " ;
-    }
     @PostMapping("/signup")
     public ResponseEntity<SignUpResponse> signup(@RequestBody SignUpRequest signUpRequest ){
         return ResponseEntity.ok(authService.signup(signUpRequest));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginRequest> login(@RequestBody LoginRequest loginRequest){
-        return ResponseEntity.ok(authService.login(loginRequest));
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest){
+        String token = authService.login(loginRequest);
+        return ResponseEntity.ok(token);
     }
 
 
